@@ -1,64 +1,109 @@
-# COS30045 – Data Visualisation  
-## Exercise 0.2 – Energy Website
+# Appliance Energy Consumption Website
 
-Welcome to **Exercise 0.2** for COS30045 Data Visualisation.
+My website for COS30045 Exercise 0.2. It's three pages about how much
+electricity household appliances use, built with HTML, CSS and JavaScript.
+No frameworks or libraries.
 
-In this exercise, you will build a simple **Energy Data Webpage** using **HTML, CSS, and JavaScript**. The purpose of this exercise is to familiarise you with the development workflow using **GitHub and VS Code**, while preparing the foundation for future data visualisation tasks.
+## Pages
 
----
+- `index.html` - Home. Intro section and a FAQ accordion.
+- `televisions.html` - Televisions. Set up as a data story with placeholders
+  where the charts will go later.
+- `about.html` - About Us. Info about the project and the data.
 
-# Objective
+## How to run it
 
-The objectives of this exercise are:
+Open `index.html` in a browser. That's it, there's nothing to install.
+I used the Live Server extension in VS Code while working on it.
 
-- Understand how to use **GitHub for version control**
-- Practice **web development structure**
-- Build a **basic website**
-- Maintain **regular commits**
-- Identify commits that include **GenAI-generated code**
+## Folder structure
 
----
+```
+css/
+    styles.css
+js/
+    scripts.js
+images/
+    PowerIcon.png
+data/
+    data.csv
+index.html
+televisions.html
+about.html
+README.md
+```
 
-# Step 1 – Fork the Repository
+All the CSS is in one file and all the JavaScript is in one file. Both are
+linked from every page so the styling stays the same across the site.
 
-1. Open this repository.
-2. Click **Fork** at the top right of the page.
-3. This will create a copy of the repository in your GitHub account.
+## What it does
 
-Example:
+- Nav bar on all three pages with the power logo top left
+- Logo takes you back to Home
+- Links change colour when you hover over them
+- The page you're on is underlined in the nav
+- FAQ answers are hidden until you click the question
+- Footer year updates itself
+- Nav collapses into a menu button on phones
 
-Original repository : "github.com/rishmaf/COS30045-Data-Visualization/energy-webpage"
+## The JavaScript
 
-Your forked repository : "github.com/yourusername/COS30045-Data-Visualization/energy-webpage"
+`js/scripts.js` runs on all three pages. Each bit checks the elements
+exist first, otherwise you get errors on pages that don't have them.
 
+**Footer year.** Grabs the span with id "year" and puts the current year in it
+with `new Date().getFullYear()`. Saves me updating it manually.
 
----
+**FAQ accordion.** `querySelectorAll` grabs all the question buttons, then
+`forEach` loops through and adds a click listener to each one.
+`nextElementSibling` gets the answer div sitting right under the button, and
+`classList.toggle("show")` adds or removes the class. The CSS has
+`.faq-answer { display: none }` and `.faq-answer.show { display: block }`, so
+JavaScript only handles the state and CSS does the showing and hiding.
 
-# Step 2 – Clone the Repository
+**Menu button.** Same toggle idea, adds an "open" class to the nav list.
 
-Clone your forked repository to your local machine using **VS Code** or the terminal.
+## Colours
 
+Greens based on the power logo. They're set as CSS variables at the top of
+styles.css so I only have to change them in one place.
 
+- `#167a45` buttons, links, active nav
+- `#005f32` the site name
+- `#f7f9f8` page background
+- `#ffffff` cards
+- `#dde4e0` borders
 
-# Step 3 – Project Structure
+Fonts are Hanken Grotesk for headings and Source Sans 3 for body text, loaded
+from Google Fonts with fallbacks in case they don't load.
 
+## Generative AI Reflection
 
-Your project must follow the structure below.
+**TODO: rewrite this in your own words before submitting.**
 
-```bash
-energy-webpage-v1
-│
-├── css
-│   └── styles.css
-│
-├── js
-│   └── scripts.js
-│
-├── images
-│   └── PowerIcon.png
-│
-├── data
-│   └── data.csv
-│
-├── index.html
-└── README.md
+**Tools.** I used Claude and Google Stitch.
+
+**What I used it for.** Stitch to come up with the visual design, and Claude to
+help with the CSS and to explain things I didn't understand.
+
+**What I changed.** The design Stitch gave me used Tailwind from a CDN and an
+icon font from Google. The exercise says all the styling has to be in an
+external CSS file and I can't use libraries, so I couldn't use that code. I
+rebuilt the design in normal CSS instead. The colours and sizes from the mockup
+became CSS variables, and I swapped the icon font for SVG icons written
+directly in the HTML. I also rewrote a lot of the placeholder text because it
+claimed things about data sources and sponsorship that aren't true for a
+student project.
+
+**What I learnt.** How `addEventListener` connects a click to a function, and
+that it's cleaner to let JavaScript just toggle a class and let CSS decide what
+that class looks like. I also learnt how CSS grid placement works after getting
+stuck on a bug where a section collapsed into one narrow column. Turned out
+`grid-column: span 8` sets the end line to auto, so adding a separate start
+line afterwards broke it. Had to set both lines in one rule.
+
+**Problems.** Generated code still has to be checked and tested, it doesn't
+just work. A lot of what I got back was more complicated than the exercise
+needed so I cut it down to stuff I can actually explain. Some of the writing
+also sounded confident but wasn't accurate, which made me realise you can't
+just trust the output.
