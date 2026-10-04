@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4 | Appliance Energy Consumption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand" aria-label="Exercise 4 overview">
+                <img src="images/PowerIcon.png" alt="Power logo">
+                <span class="brand-name">Appliance Energy</span>
+            </a>
+
+            <nav id="primary-nav" aria-label="Exercise 4 steps">
+                <ul class="nav-links nav-links--steps">
+                    <li><a class="active" aria-current="page" href="index.html">Overview</a></li>
+                    <li><a href="Exercise%204.1/index.html">4.1</a></li>
+                    <li><a href="Exercise%204.2/index.html">4.2</a></li>
+                    <li><a href="Exercise%204.3/index.html">4.3</a></li>
+                    <li><a href="Exercise%204.4/index.html">4.4</a></li>
+                    <li><a href="Exercise%204.5/index.html">4.5</a></li>
+                    <li><a href="Exercise%204.6/index.html">4.6</a></li>
+                </ul>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" type="button"
+                    aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero">
+            <div class="container grid">
+                <div class="span-8 stack-sm">
+                    <p class="eyebrow">Exercise 4</p>
+                    <h1 class="display display--narrow">Introduction to D3.js</h1>
+                    <p class="body-main lead">D3.js is a JavaScript library for building data visualisations on the web. These steps work up from drawing shapes by hand to a bar chart that is drawn and scaled entirely from a CSV file.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="data-grid">
+                    <a class="data-card step-card" href="Exercise%204.1/index.html">
+                        <p class="eyebrow">Exercise 4.1</p>
+                        <h3>Draw SVGs</h3>
+                        <p>A house and garden drawn by hand with every SVG primitive, annotated to explain the coordinate system.</p>
+                    </a>
+                    <a class="data-card step-card" href="Exercise%204.2/index.html">
+                        <p class="eyebrow">Exercise 4.2</p>
+                        <h3>D3 selections</h3>
+                        <p>Selecting elements with d3.select and d3.selectAll, then styling them and appending new ones.</p>
+                    </a>
+                    <a class="data-card step-card" href="Exercise%204.3/index.html">
+                        <p class="eyebrow">Exercise 4.3</p>
+                        <h3>D3 setup</h3>
+                        <p>Loading the D3 library and creating a responsive SVG that scales with its viewBox.</p>
+                    </a>
+                    <a class="data-card step-card" href="Exercise%204.4/index.html">
+                        <p class="eyebrow">Exercise 4.4</p>
+                        <h3>Load data from CSV</h3>
+                        <p>Reading the TV brand-count CSV with d3.csv, converting types and inspecting the data.</p>
+                    </a>
+                    <a class="data-card step-card" href="Exercise%204.5/index.html">
+                        <p class="eyebrow">Exercise 4.5</p>
+                        <h3>Binding data</h3>
+                        <p>Binding each row of data to a rectangle with selectAll, data and join.</p>
+                    </a>
+                    <a class="data-card step-card" href="Exercise%204.6/index.html">
+                        <p class="eyebrow">Exercise 4.6</p>
+                        <h3>Scaling charts</h3>
+                        <p>Using linear and band scales so the chart fits any drawing area.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div>
+                <div class="site-footer__brand">Appliance Energy</div>
+                <p>
+                    &copy; <span id="year"></span> Abdullah Al Shafayet Sporsho. Created for COS30045 Data
+                    Visualisation. Generative AI (Claude, Anthropic) was used to generate and
+                    debug code for this exercise.
+                </p>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="index.html">Exercise 4</a>
+                <a href="../Exercise%203/televisions.html">Data story</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
