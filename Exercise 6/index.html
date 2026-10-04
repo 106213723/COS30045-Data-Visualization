@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction | Appliance Energy Consumption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand" aria-label="Appliance Energy Consumption, Exercise 6">
+                <img src="images/PowerIcon.png" alt="Power logo">
+                <span class="brand-name">Appliance Energy</span>
+            </a>
+
+            <nav id="primary-nav" aria-label="Primary">
+                <ul class="nav-links">
+                    <li><a href="../Exercise%203/televisions.html">Data story</a></li>
+                    <li><a href="../Exercise%204/index.html">D3 basics</a></li>
+                    <li><a href="../Exercise%205/index.html">Chart types</a></li>
+                    <li><a class="active" href="index.html" aria-current="page">Interaction</a></li>
+                </ul>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" type="button"
+                    aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container grid">
+                <div class="span-8 stack-sm">
+                    <p class="eyebrow">Exercise 6 · Interactive visualisations</p>
+                    <h1 class="display display--narrow">Explore the data yourself</h1>
+                    <p class="body-main lead">
+                        Interaction lets readers ask their own questions of a chart. Filter the
+                        histogram by screen technology, or hover over any television in the
+                        scatterplot to see its details.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6.1 Histogram -->
+        <section class="section">
+            <div class="container">
+                <div class="grid mb-md">
+                    <div class="span-8 stack-sm">
+                        <p class="eyebrow">Exercise 6.1 · Filtering</p>
+                        <h2 class="headline-section">How much energy do televisions use?</h2>
+                        <p class="body-main">
+                            Most televisions use less than 500 kWh a year (65% of models), with a
+                            long tail of large, power-hungry screens reaching over 2,600 kWh. Switch
+                            between technologies to compare their shapes: LCD models cluster lower,
+                            with a median of 265 kWh, while LED and OLED sit around 410 to 420 kWh.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="filter-row" id="histogram-filters" role="group" aria-label="Filter by screen technology">
+                    <span class="filter-row__label">Screen technology</span>
+                    <button class="filter-btn" type="button" data-tech="All" aria-pressed="true">All</button>
+                    <button class="filter-btn" type="button" data-tech="LED" aria-pressed="false"><i style="background-color: #167a45"></i>LED</button>
+                    <button class="filter-btn" type="button" data-tech="LCD" aria-pressed="false"><i style="background-color: #c0780f"></i>LCD</button>
+                    <button class="filter-btn" type="button" data-tech="OLED" aria-pressed="false"><i style="background-color: #2f6db5"></i>OLED</button>
+                </div>
+
+                <div class="chart-frame chart-frame--tall">
+                    <div class="chart" id="histogram"></div>
+                </div>
+                <p class="chart-summary" id="histogram-summary" role="status" aria-live="polite"></p>
+                <p class="figure-caption">
+                    Figure 6.1: Number of televisions in each 100 kWh band of yearly energy use.
+                    The vertical axis rescales for each filter so smaller groups stay readable.
+                </p>
+            </div>
+        </section>
+
+        <!-- 6.2 Scatterplot -->
+        <section class="section">
+            <div class="container">
+                <div class="grid mb-md">
+                    <div class="span-8 stack-sm">
+                        <p class="eyebrow">Exercise 6.2 · Tooltips</p>
+                        <h2 class="headline-section">Stars, size and technology together</h2>
+                        <p class="body-main">
+                            Each dot is a television, coloured by its screen technology. Higher star
+                            ratings generally mean lower energy use, but hover over the dots high up
+                            the chart: they are almost all large screens. Use the legend to hide a
+                            technology and compare the others.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="filter-row" id="scatter-legend" role="group" aria-label="Show or hide screen technologies">
+                    <span class="filter-row__label">Show</span>
+                    <button class="filter-btn filter-btn--legend" type="button" data-tech="LED" aria-pressed="true"><i style="background-color: #167a45"></i>LED</button>
+                    <button class="filter-btn filter-btn--legend" type="button" data-tech="LCD" aria-pressed="true"><i style="background-color: #c0780f"></i>LCD</button>
+                    <button class="filter-btn filter-btn--legend" type="button" data-tech="OLED" aria-pressed="true"><i style="background-color: #2f6db5"></i>OLED</button>
+                </div>
+
+                <div class="chart-frame chart-frame--tall">
+                    <div class="chart" id="scatterplot"></div>
+                </div>
+                <p class="figure-caption">
+                    Figure 6.2: Energy consumption against star rating for 4,233 televisions.
+                    Dots are spread slightly sideways so overlapping models stay visible.
+                </p>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="section section--ruled">
+            <div class="container">
+                <div class="grid">
+                    <div class="span-4">
+                        <h2 class="headline-section">How the interaction works</h2>
+                    </div>
+                    <div class="span-8 stack-md">
+                        <div class="takeaway">
+                            <span class="takeaway__num">01</span>
+                            <div>
+                                <h3>Filtering with the update pattern</h3>
+                                <p class="body-main">
+                                    Each filter button re-bins the selected televisions and passes
+                                    the new bins to the same bars with <code>.data().join()</code>.
+                                    A transition animates each bar to its new height.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <span class="takeaway__num">02</span>
+                            <div>
+                                <h3>Tooltips from mouse events</h3>
+                                <p class="body-main">
+                                    <code>mousemove</code> on a dot fills a tooltip with that
+                                    television's data and places it at the pointer using
+                                    <code>d3.pointer()</code>; <code>mouseleave</code> hides it again.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <span class="takeaway__num">03</span>
+                            <div>
+                                <h3>Colour that always means the same thing</h3>
+                                <p class="body-main">
+                                    LED, LCD and OLED keep the same colours on every chart in the
+                                    project, and the colours were checked to stay distinguishable
+                                    for readers with colour-vision deficiency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div>
+                <div class="site-footer__brand">Appliance Energy</div>
+                <p>
+                    &copy; <span id="year"></span> Abdullah Al Shafayet Sporsho. Created for COS30045 Data
+                    Visualisation. Generative AI (Claude, Anthropic) was used to generate and
+                    debug the chart code for this exercise.
+                </p>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="../Exercise%203/televisions.html">Data story</a>
+                <a href="../Exercise%204/index.html">D3 basics</a>
+                <a href="../Exercise%205/index.html">Chart types</a>
+                <a class="active" href="index.html">Interaction</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/chart-helpers.js"></script>
+    <script src="js/histogram.js"></script>
+    <script src="js/scatterplot.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
