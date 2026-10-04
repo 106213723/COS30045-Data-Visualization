@@ -84,13 +84,14 @@
             <div class="container">
                 <div class="grid mb-md">
                     <div class="span-8 stack-sm">
-                        <p class="eyebrow">Donut chart and bar chart</p>
+                        <p class="eyebrow">Bar chart and donut chart</p>
                         <h2 class="headline-section">Which screen technology uses the most?</h2>
                         <p class="body-main">
-                            The answer depends on how the question is asked. Across every television,
-                            LED accounts for 85% of the combined energy use, but mostly because 82%
-                            of the models are LED. Comparing only 55-inch models removes the effect
-                            of screen size, and the gap between technologies shrinks to about 13%.
+                            Energy use depends on screen size, so a fair comparison needs TVs of the
+                            same size. Among 55-inch models, the median size, LED uses the most at
+                            369 kWh a year, but LCD is only about 10% lower. Across every television,
+                            LED accounts for 85% of the combined energy use, mostly because 82% of the
+                            models are LED.
                         </p>
                     </div>
                 </div>
@@ -104,20 +105,46 @@
                 <div class="grid">
                     <div class="span-6">
                         <div class="chart-frame">
-                            <h3 class="chart-frame__title">Share of total energy use, all TVs</h3>
-                            <div class="chart" id="donut-chart"></div>
-                        </div>
-                        <p class="figure-caption">
-                            Figure 5.2: Combined yearly energy use of every model, by technology.
-                        </p>
-                    </div>
-                    <div class="span-6">
-                        <div class="chart-frame">
                             <h3 class="chart-frame__title">Average energy use, 55-inch TVs only</h3>
                             <div class="chart" id="bar-chart"></div>
                         </div>
                         <p class="figure-caption">
-                            Figure 5.3: Mean energy use of the 689 models with a 55-inch screen.
+                            Figure 5.2: Mean energy use of 55-inch TVs by screen technology.
+                        </p>
+                    </div>
+                    <div class="span-6">
+                        <div class="chart-frame">
+                            <h3 class="chart-frame__title">Share of total energy use, all TVs</h3>
+                            <div class="chart" id="tech-donut-chart"></div>
+                        </div>
+                        <p class="figure-caption">
+                            Figure 5.3: Combined yearly energy use of every model, by technology.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Size category donut -->
+        <section class="section">
+            <div class="container">
+                <div class="grid items-center">
+                    <div class="span-6">
+                        <div class="chart-frame">
+                            <h3 class="chart-frame__title">TV models by screen size category</h3>
+                            <div class="chart" id="donut-chart"></div>
+                        </div>
+                        <p class="figure-caption">
+                            Figure 5.4: Proportion of small, medium and large TV models.
+                        </p>
+                    </div>
+                    <div class="span-6 stack-sm">
+                        <p class="eyebrow">Donut chart</p>
+                        <h2 class="headline-section">Most TVs are medium sized.</h2>
+                        <p class="body-main">
+                            Just over half of the models (53%) are medium sized, and large screens
+                            make up another 30%. Only 17% are small. Shades of one green run from
+                            light to dark because the categories have a natural order.
                         </p>
                     </div>
                 </div>
@@ -149,7 +176,7 @@
                     <div class="chart" id="line-chart"></div>
                 </div>
                 <p class="figure-caption">
-                    Figure 5.4: Annual average wholesale spot price, 1998 to 2024. Hover to see
+                    Figure 5.5: Annual average wholesale spot price, 1998 to 2024. Hover to see
                     every region's price for a year.
                 </p>
             </div>
@@ -233,6 +260,7 @@
     <script src="js/chart-helpers.js"></script>
     <script src="js/scatter-plot.js"></script>
     <script src="js/donut-chart.js"></script>
+    <script src="js/tech-donut-chart.js"></script>
     <script src="js/bar-chart.js"></script>
     <script src="js/line-chart.js"></script>
     <script src="js/main.js"></script>

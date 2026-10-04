@@ -1,84 +1,80 @@
 /* ============================================================
-   Donut chart: share of total energy use by screen technology
-   Each slice is the combined yearly energy use of every TV with
-   that technology, so the slices add up to the whole dataset.
+   Exercise 5.3: donut chart
+   Proportion of small, medium and large TV models, from the
+   KNIME-aggregated course file.
    ============================================================ */
 
-function drawDonutChart(data) {
+const drawDonutChart = data => {
     const width = 480;
     const height = 380;
-    const radius = 150;
+    const padding = 30;
+    // Fit the circle inside the shortest side, with room around it
+    const radius = Math.min(width, height) / 2 - padding;
     const tooltip = createTooltip("#donut-chart");
+    const total = d3.sum(data, d => d.count);
+
+    // Colour scale. The categories have an order (small to large), so
+    // they use light to dark shades of one green rather than unrelated hues.
+    const colourScale = d3.scaleOrdinal()
+        .domain(["small", "medium", "large"])
+        .range(["#9fd4b0", "#2fae66", "#005f32"]);
+
+    // Angles for each slice. sort(null) keeps the order of the data,
+    // which has already been sorted from small to large.
+    const pie = d3.pie()
+        .value(d => d.count)
+        .sort(null);
+
+    const arcGenerator = d3.arc()
+        .innerRadius(radius * 0.6)
+        .outerRadius(radius)
+        .padAngle(0.02)
+        .cornerRadius(3);
 
     const svg = d3.select("#donut-chart")
         .append("svg")
         .attr("viewBox", `0 0 ${width} ${height}`);
 
-    const inner = svg.append("g")
+    // Move (0, 0) to the centre so the arcs are drawn around it
+    const innerChart = svg.append("g")
         .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-    const totals = TECH_ORDER.map(tech => {
-        const tvs = data.filter(d => d.screenTech === tech);
-        return {
-            tech: tech,
-            models: tvs.length,
-            energy: d3.sum(tvs, d => d.energyConsumption)
-        };
-    });
-    const grandTotal = d3.sum(totals, d => d.energy);
+    const slices = innerChart.selectAll(".slice")
+        .data(pie(data))
+        .join("g")
+        .attr("class", "slice");
 
-    // Colour scale: d3.scaleOrdinal maps each category to a colour
-    const colourScale = d3.scaleOrdinal()
-        .domain(TECH_ORDER)
-        .range(TECH_ORDER.map(tech => TECH_COLOURS[tech]));
-
-    // d3.pie works out the start and end angle of each slice
-    const pie = d3.pie()
-        .value(d => d.energy)
-        .sort(null)
-        .padAngle(0.012);
-
-    const arc = d3.arc()
-        .innerRadius(radius * 0.6)
-        .outerRadius(radius);
-
-    const labelArc = d3.arc()
-        .innerRadius(radius + 22)
-        .outerRadius(radius + 22);
-
-    const slices = pie(totals);
-
-    inner.selectAll("path")
-        .data(slices)
-        .join("path")
-        .attr("d", arc)
-        .attr("fill", d => colourScale(d.data.tech))
+    slices.append("path")
+        .attr("d", arcGenerator)
+        .attr("fill", d => colourScale(d.data.screenSizeCategory))
         .on("mousemove", (event, d) => tooltip.show(event,
-            `<strong>${d.data.tech}</strong>` +
-            `${d3.format(",")(d.data.energy)} kWh/year<br>` +
-            `${d3.format(".1%")(d.data.energy / grandTotal)} of the total · ${d.data.models} models`))
+            `<strong>${capitalise(d.data.screenSizeCategory)} TVs</strong>` +
+            `${d3.format(",")(d.data.count)} models · ${d3.format(".1%")(d.data.count / total)}`))
         .on("mouseleave", tooltip.hide);
 
-    // Direct labels outside each slice
-    inner.selectAll(".slice-label")
-        .data(slices)
-        .join("text")
-        .attr("class", "bar-label slice-label")
-        .attr("transform", d => `translate(${labelArc.centroid(d)})`)
-        .attr("text-anchor", d => (d.startAngle + d.endAngle) / 2 > Math.PI ? "end" : "start")
+    // Labels in the middle of each slice
+    slices.append("text")
+        .attr("class", "slice-label")
+        .attr("transform", d => `translate(${arcGenerator.centroid(d)})`)
+        .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
-        .text(d => `${d.data.tech} ${d3.format(".0%")(d.data.energy / grandTotal)}`);
+        .attr("fill", d => (d.data.screenSizeCategory === "small" ? "#141d1a" : "#ffffff"))
+        .text(d => `${capitalise(d.data.screenSizeCategory)} ${d3.format(".0%")(d.data.count / total)}`);
 
-    // Total in the middle of the ring
-    inner.append("text")
+    // Total in the centre of the ring
+    innerChart.append("text")
         .attr("class", "donut-total")
         .attr("text-anchor", "middle")
         .attr("y", -4)
-        .text(`${d3.format(".2f")(grandTotal / 1e6)} GWh`);
+        .text(d3.format(",")(total));
 
-    inner.append("text")
+    innerChart.append("text")
         .attr("class", "axis-title")
         .attr("text-anchor", "middle")
         .attr("y", 20)
-        .text("per year, all TVs");
+        .text("TV models");
+};
+
+function capitalise(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
 }
