@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Televisions | Appliance Energy Consumption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand" aria-label="Appliance Energy Consumption home">
+                <img src="images/PowerIcon.png" alt="Power logo">
+                <span class="brand-name">Appliance Energy</span>
+            </a>
+
+            <nav id="primary-nav" aria-label="Primary">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="televisions.html">Televisions</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" type="button"
+                    aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <p class="eyebrow mb-sm">Television energy analysis</p>
+                <h1 class="display display--narrow">
+                    What influences the energy consumption of a television?
+                </h1>
+            </div>
+        </section>
+
+        <!-- Research question -->
+        <section class="section">
+            <div class="container grid">
+                <div class="span-8">
+                    <div class="card card--ruled">
+                        <h2 class="headline-chart mb-sm">Core research question</h2>
+                        <p class="body-main">
+                            How much does screen size influence television energy consumption?
+                            As buyers move towards larger screens, the relationship between
+                            physical dimensions and power draw becomes important for informed
+                            purchasing. This story uses a dataset of 4,233 televisions sold in
+                            Australia to examine the real cost of going big.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 01 -->
+        <section class="section">
+            <div class="container">
+                <div class="grid mb-md">
+                    <div class="span-8 stack-sm">
+                        <p class="eyebrow">Chapter 01</p>
+                        <h2 class="headline-section">What television sizes are most common?</h2>
+                        <p class="body-main">
+                            Before analysing energy use it helps to understand the composition of
+                            the market. Television sizes are not spread evenly: they cluster
+                            around a handful of standard diagonal measurements.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="span-8">
+                        <div class="chart-frame">
+                            <div class="chart" id="chart-sizes"></div>
+                        </div>
+                        <p class="figure-caption">
+                            Figure 1.1: Number of television models in each 5-inch screen-size band.
+                        </p>
+                    </div>
+                    <div class="span-4">
+                        <div class="insight-card">
+                            <div class="insight-card__head">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10.5c.6.7 1 1.5 1 2.5h6c0-1 .4-1.8 1-2.5A6 6 0 0012 3z"></path>
+                                </svg>
+                                <h3 class="headline-chart">Key insight</h3>
+                            </div>
+                            <p class="body-main">
+                                55-inch (689 models) and 65-inch (675 models) are the two most
+                                common sizes, together making up about a third of the dataset.
+                                75-inch screens follow closely with 559 models, so large screens
+                                are now a mainstream choice rather than a niche one.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 02 -->
+        <section class="section">
+            <div class="container">
+                <div class="grid mb-md">
+                    <div class="span-8 stack-sm">
+                        <p class="eyebrow">Chapter 02</p>
+                        <h2 class="headline-section">Larger screens generally consume more energy.</h2>
+                        <p class="body-main">
+                            Plotting labelled energy consumption (kWh per year) against screen size
+                            shows a strong positive relationship (correlation r = 0.86). An average
+                            32-inch model uses about 119 kWh a year, a 65-inch model about 501 kWh
+                            and a 98-inch model about 1,179 kWh. The vertical spread at each size is
+                            just as interesting: at 65 inches, models range from 207 to 1,135 kWh,
+                            so other factors are also at work.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="chart-frame chart-frame--tall">
+                    <div class="chart" id="chart-scatter"></div>
+                </div>
+                <p class="figure-caption">
+                    Figure 2.1: Energy consumption (kWh/year) relative to diagonal screen size.
+                    Each dot is one television model; hover for details.
+                </p>
+            </div>
+        </section>
+
+        <!-- Chapter 03 -->
+        <section class="section">
+            <div class="container">
+                <div class="grid mb-md">
+                    <div class="span-8 stack-sm">
+                        <p class="eyebrow">Chapter 03</p>
+                        <h2 class="headline-section">Does screen technology change the picture?</h2>
+                        <p class="body-main">
+                            Beyond physical size, panel technology (LED, LCD, OLED) affects
+                            efficiency. Examining how often each technology appears, and at what
+                            sizes, helps identify variables that could confound a simple
+                            comparison.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid mb-md">
+                    <div class="span-6">
+                        <div class="chart-frame chart-frame--short">
+                            <h3 class="chart-frame__title">Technology frequency</h3>
+                            <div class="chart" id="chart-tech-count"></div>
+                        </div>
+                        <p class="figure-caption">Figure 3.1: Number of models using each screen technology.</p>
+                    </div>
+                    <div class="span-6">
+                        <div class="chart-frame chart-frame--short">
+                            <h3 class="chart-frame__title">Size by technology</h3>
+                            <div class="chart" id="chart-tech-size"></div>
+                        </div>
+                        <p class="figure-caption">
+                            Figure 3.2: Screen sizes per technology. The box covers the middle half
+                            of models and the white line marks the median.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="offset-right">
+                        <div class="note-panel">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M12 11v6M12 8h.01"></path>
+                            </svg>
+                            <div>
+                                <h3>A note on interpreting technology</h3>
+                                <p>
+                                    Comparing energy consumption across technologies needs care.
+                                    OLED models average 485.7 kWh a year against 329.8 kWh for LCD,
+                                    but OLED screens also tend to be bigger: 59% of OLED models are
+                                    65 inches or larger, compared with 32% of LCD models. A high
+                                    average for one technology may reflect its typical size rather
+                                    than an inherent inefficiency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Takeaways -->
+        <section class="section section--ruled">
+            <div class="container">
+                <div class="grid mb-lg">
+                    <div class="span-4">
+                        <h2 class="headline-section">Key takeaways</h2>
+                    </div>
+                    <div class="span-8 stack-md">
+                        <div class="takeaway">
+                            <span class="takeaway__num">01</span>
+                            <div>
+                                <h3>Screen size dictates base consumption</h3>
+                                <p class="body-main">
+                                    Size is the strongest single predictor of energy draw in the
+                                    dataset. Moving from a 55-inch to a 75-inch model raises average
+                                    consumption from about 365 to 642 kWh a year.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <span class="takeaway__num">02</span>
+                            <div>
+                                <h3>Market standardisation</h3>
+                                <p class="body-main">
+                                    Most models are sold at a few standard sizes, led by 55 and 65
+                                    inches, which makes efficiency comparisons within those sizes
+                                    especially relevant.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <span class="takeaway__num">03</span>
+                            <div>
+                                <h3>Contextual technology assessment</h3>
+                                <p class="body-main">
+                                    When comparing OLED with LED or LCD, compare models of the same
+                                    screen size so the larger typical size of OLED does not distort
+                                    the result.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommend-panel">
+                    <h3>Consumer recommendation</h3>
+                    <p>
+                        If energy efficiency is a priority, choose the smallest screen that suits
+                        your viewing distance. If a larger screen is non-negotiable, compare the
+                        energy ratings of specific models within that size category, because the
+                        variation between manufacturers can be significant: the hungriest 65-inch
+                        model uses more than five times the energy of the most efficient one.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data transparency -->
+        <section class="section section--tight">
+            <div class="container rule-top">
+                <h2 class="eyebrow mb-sm">About this analysis</h2>
+                <div class="link-row">
+                    <a href="about.html#data-source">
+                        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+                            <ellipse cx="12" cy="6" rx="7" ry="3"></ellipse>
+                            <path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path>
+                            <path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"></path>
+                        </svg>
+                        Data source
+                    </a>
+                    <a href="about.html#limitations">
+                        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 4l9 16H3z"></path>
+                            <path d="M12 10v4M12 17h.01"></path>
+                        </svg>
+                        Limitations
+                    </a>
+                    <a href="about.html#ethics">
+                        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 4v16M7 20h10M5 8h14M8 8l-3 6h6zM16 8l-3 6h6z"></path>
+                        </svg>
+                        Ethics
+                    </a>
+                    <a href="about.html#ai-declaration">
+                        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="4" y="8" width="16" height="11"></rect>
+                            <path d="M12 4v4M9 13h.01M15 13h.01M9.5 16h5"></path>
+                        </svg>
+                        AI declaration
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div>
+                <div class="site-footer__brand">Appliance Energy</div>
+                <p>
+                    &copy; <span id="year"></span> Abdullah Al Shafayet Sporsho. Created for COS30045 Data
+                    Visualisation. Generative AI tools were used to assist with code
+                    structure, syntax and debugging.
+                </p>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="index.html">Home</a>
+                <a class="active" href="televisions.html">Televisions</a>
+                <a href="about.html">About Us</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>

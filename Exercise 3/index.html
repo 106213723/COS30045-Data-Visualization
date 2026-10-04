@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Appliance Energy Consumption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand" aria-label="Appliance Energy Consumption home">
+                <img src="images/PowerIcon.png" alt="Power logo">
+                <span class="brand-name">Appliance Energy</span>
+            </a>
+
+            <nav id="primary-nav" aria-label="Primary">
+                <ul class="nav-links">
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="televisions.html">Televisions</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" type="button"
+                    aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container grid items-center">
+                <div class="span-8 hero__copy">
+                    <h1 class="display">Understand what drives household energy consumption.</h1>
+                    <p class="body-main lead">
+                        Explore the relationship between appliance size, display technology
+                        and daily usage to uncover what really shapes domestic energy demand
+                        in the Australian market.
+                    </p>
+                    <div class="btn-row">
+                        <a class="btn btn--primary" href="televisions.html">Explore television data</a>
+                        <a class="btn btn--secondary" href="about.html">Learn about the project</a>
+                    </div>
+                </div>
+                <div class="span-4 hero__motif" aria-hidden="true">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M100 0L125.438 74.5621L200 100L125.438 125.438L100 200L74.5621 125.438L0 100L74.5621 74.5621L100 0Z"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why it matters -->
+        <section class="section">
+            <div class="container grid items-center">
+                <div class="span-7 stack-md">
+                    <h2 class="headline-section">Why appliance energy consumption matters</h2>
+                    <p class="body-main">
+                        As households adopt larger screens and more sophisticated appliances,
+                        the hidden energy cost becomes harder to see. It is not only about
+                        switching devices off &mdash; it is about the efficiency built into the
+                        technology we bring into our homes in the first place.
+                    </p>
+                    <p class="body-main">
+                        This project looks at how measurable attributes, such as the screen
+                        size of a television, relate to annual energy draw and long-term
+                        running costs.
+                    </p>
+                </div>
+                <div class="span-5">
+                    <div class="stat-card">
+                        <span class="stat-card__figure">4,233</span>
+                        <span class="headline-chart">Televisions analysed</span>
+                        <p class="annotation">
+                            Models in the course dataset, ranging from 16 to 116 inches and
+                            from 56 to 2,652 kWh of energy use a year.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section">
+            <div class="container">
+                <h2 class="headline-section text-center mb-md">
+                    Frequently asked questions
+                </h2>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>What is appliance energy consumption?</span>
+                            <svg class="icon faq-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="body-main">
+                                Appliance energy consumption is the amount of electrical energy a
+                                household device uses over a period of time. It is normally measured
+                                in kilowatt hours (kWh) and is a primary factor in a residential
+                                electricity bill.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>Why does television size matter?</span>
+                            <svg class="icon faq-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="body-main">
+                                The area of a screen is related to how much light it has to produce.
+                                Larger screens generally need more power to illuminate, which tends to
+                                raise energy consumption even when the panel technology is efficient.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>Why does energy efficiency matter?</span>
+                            <svg class="icon faq-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="body-main">
+                                An efficient appliance uses less electricity to do the same job, which
+                                can reduce running costs over the life of the product and lower the
+                                energy a household draws overall.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>How is energy use converted into a cost?</span>
+                            <svg class="icon faq-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="body-main">
+                                Energy use in kilowatt hours is multiplied by the electricity
+                                price. Retail tariffs are usually quoted in cents per kilowatt
+                                hour, so the price is divided by 100 to work in dollars.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div>
+                <div class="site-footer__brand">Appliance Energy</div>
+                <p>
+                    &copy; <span id="year"></span> Abdullah Al Shafayet Sporsho. Created for COS30045 Data
+                    Visualisation. Generative AI tools were used to assist with code
+                    structure, syntax and debugging.
+                </p>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a class="active" href="index.html">Home</a>
+                <a href="televisions.html">Televisions</a>
+                <a href="about.html">About Us</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>

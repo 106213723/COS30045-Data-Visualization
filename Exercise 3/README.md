@@ -1,104 +1,69 @@
-# Exercise 3 – Data Story: TV Energy Consumption
+# Exercise 3: Data Story, TV Energy Consumption
 
-## Overview
+This is my Exercise 0.2 website with the Televisions page turned into a data
+story. The chart placeholders are now real charts made from the TV dataset.
 
-In this exercise, you will develop a **data story** based on the **TV Energy Consumption dataset**. Using the website created in **Exercise 0.2**, you will extend your work to present a meaningful narrative supported by data visualisations.
+## Audience
 
-Your goal is to communicate insights from the dataset in a clear and engaging way through your **website and written explanation**.
+People in Australia shopping for a new TV who want to know how screen size and
+screen type affect how much electricity it uses.
 
-You must use the **Exercise 3 folder in your existing forked repository** and reuse the files created in **Exercise 0.2**.
+## Main question
 
----
+How much does screen size affect how much energy a TV uses?
 
-## Data Story
+## Story overview
 
-### Audience
+The Televisions page has three chapters.
 
-The target audience for this visualisation includes:
+1. **What sizes are most common.** A histogram of screen sizes. 55 and 65 inch
+   TVs are the most common, about a third of the dataset between them.
+2. **Bigger screens use more energy.** A scatter plot of screen size against
+   energy use. The link is strong (r = 0.86). An average 32 inch TV uses about
+   119 kWh a year and a 98 inch TV about 1,179 kWh.
+3. **Does screen type matter.** A bar chart of how many TVs use LED, LCD and
+   OLED, and a box plot of their screen sizes. OLED TVs use more energy on
+   average, but they are also usually bigger, so the comparison needs care.
 
-- Consumers interested in **energy-efficient televisions**
-- Policy makers and regulators interested in **energy consumption trends**
-- Researchers studying **energy efficiency in consumer electronics**
+The page ends with key takeaways and a recommendation for buyers.
 
-These audiences are interested in understanding how **television energy consumption varies across models, sizes, and technologies**, and how these factors influence overall energy usage.
+## About the data
 
-### Story Overview
+### Data source
 
-This visualisation explores patterns in **TV energy consumption** across different television models and specifications.
+The TV dataset from the unit materials. It has 4,233 TVs with brand, model,
+screen size, screen type, star rating and energy use in kWh per year.
 
-The goal is to help viewers understand:
+### Data processing
 
-- How energy consumption varies between television models
-- The relationship between **screen size and power consumption**
-- How **energy efficiency ratings** impact energy usage
-- Trends that may help consumers choose more **energy-efficient televisions**
-
-The website presents these insights through visualisations and explanatory text that guide the viewer through the data.
-
----
-
-## About the Data
-
-### Data Source
-
-The dataset used in this project contains information about **television models and their energy consumption characteristics**, including power usage, screen size, technology type, and efficiency ratings.
-
-The dataset was provided as part of the course materials.
-
-### Data Processing
-
-Before creating visualisations, the dataset was processed to ensure it was suitable for analysis. This included:
-
-- Cleaning missing or inconsistent values
-- Selecting relevant attributes for visualisation
-- Organising the data into formats suitable for web visualisation
+I used the dataset as it was given and did not remove any rows. When the page
+loads, D3 turns the number columns from text into numbers, then groups the TVs
+into 5 inch size bands and by screen type for the charts.
 
 ### Privacy
 
-The dataset does not contain any **personal or sensitive information**. It focuses solely on product specifications and energy consumption data related to television devices.
+There is no personal information in the data. It is only product details.
 
-### Accuracy and Limitations
+### Accuracy and limitations
 
-While the dataset provides useful information about TV energy consumption, there are some limitations:
-
-- The dataset may not include **all available television models**
-- Some information may be **outdated or incomplete**
-- Energy consumption may vary depending on **real-world usage conditions**
-
-These factors should be considered when interpreting the visualisations.
+- The energy figures come from standard label tests. Real use depends on
+  settings, brightness and how long the TV is on.
+- The dataset might not include every TV on sale.
+- The charts show that size and energy use go together. They do not prove
+  size is the only cause.
 
 ### Ethics
 
-When presenting data visualisations, it is important to ensure that the information is represented **accurately and responsibly**.
+Every chart axis starts at zero so differences are not exaggerated, and no
+brand is singled out or promoted.
 
-This project follows ethical data visualisation practices by:
+## AI declaration
 
-- Avoiding misleading visual representations
-- Clearly explaining the context of the data
-- Presenting information transparently so viewers can interpret the results correctly
+I used Claude (Anthropic) to write the D3 code for the charts, work out the
+numbers quoted in the story and help draft this README. I checked the charts
+against the data and tested everything in the browser before adding it.
 
----
+## How to run it
 
-## AI Declaration
-
-Artificial Intelligence (AI) tools may have been used to assist with aspects of this assignment, such as:
-
-- Generating example code
-- Improving code structure
-- Assisting with documentation writing
-
-All AI-generated assistance was reviewed, modified where necessary, and integrated responsibly into the project.
-
----
-
-## Website Storytelling
-
-The website has been updated to communicate a **data-driven story** based on the TV energy consumption dataset.
-
-The website includes:
-
-- Visualisations that present key insights from the dataset
-- Text explanations that help readers understand the meaning of the visualisations
-- Context that connects the data to real-world implications
-
-The aim is to guide the viewer through the data in a way that is **informative, engaging, and easy to understand**.
+The charts load a CSV file, so open the site with Live Server in VS Code.
+Opening the HTML file directly will not load the data.
