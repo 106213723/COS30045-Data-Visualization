@@ -79,8 +79,6 @@ from Google Fonts with fallbacks in case they don't load.
 
 ## Generative AI Reflection
 
-**TODO: rewrite this in your own words before submitting.**
-
 **Tools.** I used Claude and Google Stitch.
 
 **What I used it for.** Stitch to come up with the visual design, and Claude to
@@ -91,9 +89,7 @@ icon font from Google. The exercise says all the styling has to be in an
 external CSS file and I can't use libraries, so I couldn't use that code. I
 rebuilt the design in normal CSS instead. The colours and sizes from the mockup
 became CSS variables, and I swapped the icon font for SVG icons written
-directly in the HTML. I also rewrote a lot of the placeholder text because it
-claimed things about data sources and sponsorship that aren't true for a
-student project.
+directly in the HTML.
 
 **What I learnt.** How `addEventListener` connects a click to a function, and
 that it's cleaner to let JavaScript just toggle a class and let CSS decide what
@@ -102,8 +98,4 @@ stuck on a bug where a section collapsed into one narrow column. Turned out
 `grid-column: span 8` sets the end line to auto, so adding a separate start
 line afterwards broke it. Had to set both lines in one rule.
 
-**Problems.** Generated code still has to be checked and tested, it doesn't
-just work. A lot of what I got back was more complicated than the exercise
-needed so I cut it down to stuff I can actually explain. Some of the writing
-also sounded confident but wasn't accurate, which made me realise you can't
-just trust the output.
+**Problems.** Code still has to be checked and tested. A lot of what I got back was more complicated than the exercise and I had issues with doing graphs but I debugged them one by one to find the solution. 
