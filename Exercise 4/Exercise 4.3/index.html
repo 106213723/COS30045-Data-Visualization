@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4.3 | Appliance Energy Consumption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="../index.html" class="brand" aria-label="Exercise 4 overview">
+                <img src="../images/PowerIcon.png" alt="Power logo">
+                <span class="brand-name">Appliance Energy</span>
+            </a>
+
+            <nav id="primary-nav" aria-label="Exercise 4 steps">
+                <ul class="nav-links nav-links--steps">
+                    <li><a href="../index.html">Overview</a></li>
+                    <li><a href="../Exercise%204.1/index.html">4.1</a></li>
+                    <li><a href="../Exercise%204.2/index.html">4.2</a></li>
+                    <li><a class="active" aria-current="page" href="../Exercise%204.3/index.html">4.3</a></li>
+                    <li><a href="../Exercise%204.4/index.html">4.4</a></li>
+                    <li><a href="../Exercise%204.5/index.html">4.5</a></li>
+                    <li><a href="../Exercise%204.6/index.html">4.6</a></li>
+                </ul>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" type="button"
+                    aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero">
+            <div class="container grid">
+                <div class="span-8 stack-sm">
+                    <p class="eyebrow">Exercise 4.3</p>
+                    <h1 class="display display--narrow">Setting up D3 and a responsive SVG</h1>
+                    <p class="body-main lead">D3 is added to the page with a single script tag. This step checks that it has loaded and creates the SVG that later charts will be drawn in.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container grid">
+                <div class="span-7">
+                    <div class="card card--ruled stack-sm">
+                        <h2 class="headline-chart">What this step does</h2>
+                        <p class="body-main">
+                            The D3 library is loaded from <code>https://d3js.org/d3.v7.min.js</code> before <code>main.js</code>, so the global <code>d3</code> object is ready when our code runs.
+                        </p>
+                        <p class="body-main">
+                            D3 appends an <code>&lt;svg&gt;</code> to the <code>.responsive-svg-container</code> div. Instead of a fixed width and height it has a <code>viewBox</code> of 1200 by 1600, which defines its own coordinate system. The <code>.responsive-svg-container</code> class in <code>style.css</code> centres the container and lets it grow to 1200px, so the box changes size with the window. The black border shows the edge of the canvas.
+                        </p>
+                    </div>
+                </div>
+                <div class="span-5">
+                    <div class="insight-card">
+                        <div class="insight-card__head">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10.5c.6.7 1 1.5 1 2.5h6c0-1 .4-1.8 1-2.5A6 6 0 0012 3z"></path>
+                            </svg>
+                            <h3 class="headline-chart">Key idea</h3>
+                        </div>
+                        <p class="body-main">Shapes inside a viewBox are positioned in viewBox units, not screen pixels. Resize the browser window and the rectangle keeps the same proportions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <h2 class="headline-section mb-md">The result</h2>
+                <div class="result-frame">
+                    <p id="d3-version" class="eyebrow mb-sm">Checking for D3...</p>
+                    <div class="chart responsive-svg-container"></div>
+                </div>
+                <p class="figure-caption">Figure 4.3: A responsive SVG with a hard-coded test rectangle at the top. The border marks the edge of the viewBox.</p>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <h2 class="headline-section mb-sm">The code</h2>
+                <p class="annotation mb-sm">js/main.js</p>
+                <pre class="code-block"><code data-source="js/main.js">Loading js/main.js...</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div>
+                <div class="site-footer__brand">Appliance Energy</div>
+                <p>
+                    &copy; <span id="year"></span> Abdullah Al Shafayet Sporsho. Created for COS30045 Data
+                    Visualisation. Generative AI (Claude, Anthropic) was used to generate and
+                    debug code for this exercise.
+                </p>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="../index.html">Exercise 4</a>
+                <a href="../../Exercise%203/televisions.html">Data story</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
