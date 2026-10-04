@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4.1 | Appliance Energy Consumption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="../index.html" class="brand" aria-label="Exercise 4 overview">
+                <img src="../images/PowerIcon.png" alt="Power logo">
+                <span class="brand-name">Appliance Energy</span>
+            </a>
+
+            <nav id="primary-nav" aria-label="Exercise 4 steps">
+                <ul class="nav-links nav-links--steps">
+                    <li><a href="../index.html">Overview</a></li>
+                    <li><a class="active" aria-current="page" href="../Exercise%204.1/index.html">4.1</a></li>
+                    <li><a href="../Exercise%204.2/index.html">4.2</a></li>
+                    <li><a href="../Exercise%204.3/index.html">4.3</a></li>
+                    <li><a href="../Exercise%204.4/index.html">4.4</a></li>
+                    <li><a href="../Exercise%204.5/index.html">4.5</a></li>
+                    <li><a href="../Exercise%204.6/index.html">4.6</a></li>
+                </ul>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" type="button"
+                    aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero">
+            <div class="container grid">
+                <div class="span-8 stack-sm">
+                    <p class="eyebrow">Exercise 4.1</p>
+                    <h1 class="display display--narrow">Building a house and garden with SVG</h1>
+                    <p class="body-main lead">A house and garden drawn using every SVG primitive: rect, circle, ellipse, line, polyline, polygon, path and text. The picture is annotated to show how the coordinates in the code match the drawing.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="picture">
+            <div class="container">
+                <h2 class="headline-section mb-sm">My SVG picture</h2>
+                <p class="body-main mb-md">Use the checkboxes to show or hide the annotation for each shape.</p>
+                <div class="result-frame">
+                    <div id="ann-controls" class="ann-controls mb-md">
+                        <label><input type="checkbox" data-target="ann-origin"> Origin</label>
+                        <label><input type="checkbox" data-target="ann-rect"> rect</label>
+                        <label><input type="checkbox" data-target="ann-circle"> circle</label>
+                        <label><input type="checkbox" data-target="ann-ellipse"> ellipse</label>
+                        <label><input type="checkbox" data-target="ann-line"> line</label>
+                        <label><input type="checkbox" data-target="ann-polyline"> polyline</label>
+                        <label><input type="checkbox" data-target="ann-polygon"> polygon</label>
+                        <label><input type="checkbox" data-target="ann-path"> path</label>
+                        <label><input type="checkbox" data-target="ann-text"> text</label>
+                    </div>
+                    <svg viewBox="0 0 600 400" class="house-svg" role="img" aria-label="SVG drawing of a house and garden">
+
+                        <!-- RECT: sky -->
+                        <rect x="0" y="0" width="600" height="400" fill="#87CEEB" />
+
+                        <!-- CIRCLE: sun -->
+                        <circle cx="520" cy="70" r="35" fill="#FFD43B" />
+
+                        <!-- ELLIPSE: clouds -->
+                        <ellipse cx="150" cy="60" rx="50" ry="20" fill="white" />
+                        <ellipse cx="190" cy="50" rx="40" ry="18" fill="white" />
+
+                        <!-- RECT: ground -->
+                        <rect x="0" y="340" width="600" height="60" fill="#6BBF59" />
+
+                        <!-- RECT: house body -->
+                        <rect x="150" y="180" width="300" height="170" fill="#E9C46A" stroke="#5C4033" stroke-width="3" />
+
+                        <!-- RECT: chimney (drawn before roof so roof covers its base) -->
+                        <rect x="380" y="95" width="30" height="60" fill="#8B3A3A" stroke="#5C4033" stroke-width="3" />
+
+                        <!-- ELLIPSE: smoke -->
+                        <ellipse cx="400" cy="80" rx="12" ry="8" fill="#ddd" opacity="0.8" />
+                        <ellipse cx="412" cy="62" rx="16" ry="10" fill="#ddd" opacity="0.6" />
+
+                        <!-- POLYGON: roof -->
+                        <polygon points="130,180 300,80 470,180" fill="#B23A48" stroke="#5C4033"
+                                 stroke-width="5" stroke-linejoin="round" />
+
+                        <!-- RECT: door -->
+                        <rect x="270" y="270" width="60" height="80" fill="#8B5A2B" stroke="#5C4033" stroke-width="2" />
+
+                        <!-- CIRCLE: door knob -->
+                        <circle cx="318" cy="312" r="4" fill="#FFD43B" />
+
+                        <!-- GROUP: windows with shared styling -->
+                        <g id="windows" fill="#AEE1F9" stroke="#333" stroke-width="3">
+                            <g transform="translate(180, 210)">
+                                <rect x="0" y="0" width="60" height="50" />
+                                <line x1="30" y1="0" x2="30" y2="50" />
+                                <line x1="0" y1="25" x2="60" y2="25" />
+                            </g>
+                            <g transform="translate(360, 210)">
+                                <rect x="0" y="0" width="60" height="50" />
+                                <line x1="30" y1="0" x2="30" y2="50" />
+                                <line x1="0" y1="25" x2="60" y2="25" />
+                            </g>
+                        </g>
+
+                        <!-- RECT + CIRCLE: tree -->
+                        <rect x="60" y="250" width="20" height="100" fill="#7A4E2D" />
+                        <circle cx="70" cy="230" r="45" fill="#2E8B57" />
+
+                        <!-- POLYLINE: picket fence -->
+                        <polyline points="470,345 470,305 485,290 500,305 500,345 500,305 515,290 530,305 530,345 530,305 545,290 560,305 560,345"
+                                  fill="none" stroke="white" stroke-width="3" />
+
+                        <!-- PATH: garden path -->
+                        <path d="M 280 350 C 270 370, 230 380, 220 400 L 340 400 C 330 380, 320 370, 320 350 Z"
+                              fill="#C2B280" stroke="#8C7B55" stroke-width="2" stroke-dasharray="6,4" />
+
+                        <!-- LINE + CIRCLE: flowers -->
+                        <line x1="110" y1="345" x2="110" y2="325" stroke="green" stroke-width="2" />
+                        <circle cx="110" cy="322" r="6" fill="#FF6B9A" />
+                        <line x1="130" y1="345" x2="130" y2="320" stroke="green" stroke-width="2" />
+                        <circle cx="130" cy="317" r="6" fill="#FFB703" />
+                        <line x1="440" y1="345" x2="440" y2="325" stroke="green" stroke-width="2" />
+                        <circle cx="440" cy="322" r="6" fill="#9B5DE5" />
+
+                        <!-- TEXT: title -->
+                        <text x="20" y="390" font-family="Arial, sans-serif" font-size="20" fill="#333">Sporsho's House</text>
+
+                        <!-- ===== ANNOTATION LAYER ===== -->
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M0,0 L10,5 L0,10 Z" fill="#E63946" />
+                            </marker>
+                        </defs>
+
+                        <g id="annotations">
+                            <g class="ann" id="ann-origin">
+                                <circle class="dot" cx="0" cy="0" r="4" />
+                                <text x="6" y="14">(0,0) origin</text>
+                                <line x1="6" y1="24" x2="70" y2="24" marker-end="url(#arrow)" />
+                                <text x="74" y="28">+x</text>
+                                <line x1="6" y1="24" x2="6" y2="80" marker-end="url(#arrow)" />
+                                <text x="10" y="80">+y (down)</text>
+                            </g>
+
+                            <g class="ann" id="ann-rect">
+                                <circle class="dot" cx="150" cy="180" r="4" />
+                                <text x="155" y="198">rect x,y = (150,180)</text>
+                                <line x1="150" y1="342" x2="450" y2="342" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+                                <text x="160" y="337">width = 300</text>
+                                <line x1="462" y1="180" x2="462" y2="350" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+                                <text x="466" y="250">height = 170</text>
+                            </g>
+
+                            <g class="ann" id="ann-circle">
+                                <circle class="dot" cx="520" cy="70" r="4" />
+                                <line x1="520" y1="70" x2="555" y2="70" marker-end="url(#arrow)" />
+                                <text x="526" y="64">r = 35</text>
+                                <text x="455" y="125">circle cx,cy = (520,70)</text>
+                            </g>
+
+                            <g class="ann" id="ann-ellipse">
+                                <circle class="dot" cx="150" cy="60" r="4" />
+                                <line x1="150" y1="60" x2="200" y2="60" marker-end="url(#arrow)" />
+                                <text x="203" y="72">rx = 50</text>
+                                <line x1="150" y1="60" x2="150" y2="40" marker-end="url(#arrow)" />
+                                <text x="98" y="45">ry = 20</text>
+                                <text x="90" y="98">ellipse cx,cy = (150,60)</text>
+                            </g>
+
+                            <g class="ann" id="ann-line">
+                                <circle class="dot" cx="210" cy="210" r="4" />
+                                <circle class="dot" cx="210" cy="260" r="4" />
+                                <text x="243" y="215">x1,y1 = (210,210) start</text>
+                                <text x="243" y="264">x2,y2 = (210,260) end</text>
+                            </g>
+
+                            <g class="ann" id="ann-polyline">
+                                <circle class="dot" cx="470" cy="345" r="4" />
+                                <circle class="dot" cx="485" cy="290" r="4" />
+                                <circle class="dot" cx="500" cy="305" r="4" />
+                                <circle class="dot" cx="560" cy="345" r="4" />
+                                <text x="420" y="358">(470,345) start</text>
+                                <text x="470" y="283">(485,290)</text>
+                                <text x="504" y="318">(500,305)</text>
+                                <text x="520" y="372">(560,345) end</text>
+                                <text x="470" y="388">polyline: NOT closed</text>
+                            </g>
+
+                            <g class="ann" id="ann-polygon">
+                                <circle class="dot" cx="130" cy="180" r="4" />
+                                <circle class="dot" cx="300" cy="80" r="4" />
+                                <circle class="dot" cx="470" cy="180" r="4" />
+                                <text x="68" y="172">(130,180)</text>
+                                <text x="305" y="76">(300,80)</text>
+                                <text x="475" y="176">(470,180)</text>
+                                <text x="235" y="140">polygon: auto-closes</text>
+                            </g>
+
+                            <g class="ann" id="ann-path">
+                                <circle class="dot" cx="280" cy="350" r="4" />
+                                <text x="212" y="360">M 280,350</text>
+                                <line class="dashed" x1="280" y1="350" x2="270" y2="370" />
+                                <line class="dashed" x1="230" y1="380" x2="220" y2="400" />
+                                <circle class="ctrl" cx="270" cy="370" r="4" />
+                                <circle class="ctrl" cx="230" cy="380" r="4" />
+                                <text x="175" y="376">C control points</text>
+                                <circle class="dot" cx="320" cy="350" r="4" />
+                                <text x="324" y="364">Z closes to start</text>
+                            </g>
+
+                            <g class="ann" id="ann-text">
+                                <circle class="dot" cx="20" cy="390" r="4" />
+                                <line class="dashed" x1="20" y1="390" x2="175" y2="390" />
+                                <text x="20" y="368">text x,y = (20,390) = baseline, not top</text>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="headline-section mb-md">Before and after</h2>
+                <div class="svg-comparison svg-comparison--two">
+                    <figure class="svg-card">
+                        <img src="images/svg-house-before.png" alt="Original SVG house with plain roof, no chimney and separate window shapes.">
+                        <figcaption><strong>Before:</strong> the base house and garden from Step 1.</figcaption>
+                    </figure>
+                    <figure class="svg-card">
+                        <img src="images/svg-house-after.png" alt="Customised SVG house with chimney, smoke, flowers, dashed garden path and grouped windows.">
+                        <figcaption><strong>After:</strong> my customised version with new shapes, colours and strokes.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container grid">
+                <div class="span-7">
+                    <div class="card card--ruled stack-sm">
+                        <h2 class="headline-chart">What I changed</h2>
+                        <ul class="check-list">
+                            <li>Added a chimney (rect) behind the roof, with two semi-transparent smoke clouds (ellipse).</li>
+                            <li>Added flowers using line stems and circle petals.</li>
+                            <li>Changed the sky and house fill colours.</li>
+                            <li>Thickened the roof stroke to 5 and rounded its corners with <code>stroke-linejoin</code>.</li>
+                            <li>Gave the garden path a dashed outline using <code>stroke-dasharray</code>.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="span-5">
+                    <div class="insight-card">
+                        <div class="insight-card__head">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10.5c.6.7 1 1.5 1 2.5h6c0-1 .4-1.8 1-2.5A6 6 0 0012 3z"></path>
+                            </svg>
+                            <h3 class="headline-chart">Key idea</h3>
+                        </div>
+                        <p class="body-main">
+                            The SVG uses a coordinate area of 600 by 400. The origin (0,0) is at the
+                            top-left; x-coordinates increase to the right and y-coordinates increase
+                            downward. Elements written later in the code are drawn on top of earlier ones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="coordinates">
+            <div class="container">
+                <h2 class="headline-section mb-md">Understanding the SVG coordinate system</h2>
+                <div class="svg-comparison">
+                    <figure class="svg-card">
+                        <img src="images/annotated-overview.png" alt="SVG origin and axes">
+                        <figcaption><strong>Origin:</strong> (0,0) at top-left, y points down.</figcaption>
+                    </figure>
+                    <figure class="svg-card">
+                        <img src="images/annotated-rect.png" alt="Annotated rect">
+                        <figcaption><strong>rect:</strong> x,y is the top-left corner; width and height extend right and down.</figcaption>
+                    </figure>
+                    <figure class="svg-card">
+                        <img src="images/annotated-circle.png" alt="Annotated circle">
+                        <figcaption><strong>circle:</strong> cx,cy is the centre; r is the radius.</figcaption>
+                    </figure>
+                    <figure class="svg-card">
+                        <img src="images/annotated-ellipse.png" alt="Annotated ellipse">
+                        <figcaption><strong>ellipse:</strong> rx and ry set the horizontal and vertical radii.</figcaption>
+                    </figure>
+                    <figure class="svg-card">
+                        <img src="images/annotated-line.png" alt="Annotated line">
+                        <figcaption><strong>line:</strong> drawn from (x1,y1) to (x2,y2); needs a stroke to show.</figcaption>
+                    </figure>
+                    <figure class="svg-card">
+                        <img src="images/annotated-polyline.png" alt="Annotated polyline">
+                        <figcaption><strong>polyline:</strong> joins points in order but does not close.</figcaption>
+                    </figure>
+                    <figure class="svg-card">
+                        <img src="images/annotated-polygon.png" alt="Annotated polygon">
+                        <figcaption><strong>polygon:</strong> joins points and automatically closes the shape.</figcaption>
+                    </figure>
+                    <figure class="svg-card">
+                        <img src="images/annotated-path.png" alt="Annotated path">
+                        <figcaption><strong>path:</strong> M moves, C draws a curve, L draws a line, Z closes.</figcaption>
+                    </figure>
+                    <figure class="svg-card">
+                        <img src="images/annotated-text.png" alt="Annotated text">
+                        <figcaption><strong>text:</strong> x,y marks the start of the baseline, not the top.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="group">
+            <div class="container grid">
+                <div class="span-6">
+                    <div class="card card--ruled stack-sm">
+                        <h2 class="headline-chart">Using the group element</h2>
+                        <ul class="check-list">
+                            <li>Both windows sit inside one <code>&lt;g&gt;</code>, so <code>fill</code>, <code>stroke</code> and <code>stroke-width</code> are set once and inherited by both.</li>
+                            <li>Each window is drawn at (0,0) and positioned with <code>transform="translate(x, y)"</code>.</li>
+                            <li>Changing the outer group's fill updates both windows at the same time.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="span-6">
+                    <div class="note-panel">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="4" y="8" width="16" height="11"></rect>
+                            <path d="M12 4v4M9 13h.01M15 13h.01M9.5 16h5"></path>
+                        </svg>
+                        <div>
+                            <h3>Use of generative AI</h3>
+                            <p>
+                                Tool used: Claude (Anthropic). Used for generating the starting SVG
+                                code, the annotation layer and page structure, restyling this page to
+                                match the rest of the site, and rendering the annotated screenshots.
+                                My own work: customising shapes, colours and strokes, and grouping
+                                the windows.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div>
+                <div class="site-footer__brand">Appliance Energy</div>
+                <p>
+                    &copy; <span id="year"></span> Abdullah Al Shafayet Sporsho. Created for COS30045 Data
+                    Visualisation. Generative AI (Claude, Anthropic) was used to generate and
+                    debug code for this exercise.
+                </p>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="../index.html">Exercise 4</a>
+                <a href="../../Exercise%203/televisions.html">Data story</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    <script>
+        // Annotations hidden by default; tick a box to show one
+        document.querySelectorAll('.ann').forEach(function (g) {
+            g.style.display = 'none';
+        });
+        document.querySelectorAll('#ann-controls input').forEach(function (box) {
+            box.addEventListener('change', function () {
+                document.getElementById(box.dataset.target).style.display =
+                    box.checked ? 'inline' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* ============================================================
+   Exercise 4.1 - SVG house and garden
+   Page-specific styles, loaded after the shared Exercise 4
+   stylesheet in ../css/styles.css.
+   ============================================================ */
+
+:root {
+    --annotation: #ba1a1a;           /* matches the site's --error red */
+}
+
+/* ------------------------------------------------------------
+   Annotation checkboxes
+   ------------------------------------------------------------ */
+.ann-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ann-controls label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--outline-variant);
+    font-size: 15px;
+    font-family: Consolas, "Courier New", monospace;
+    color: var(--on-surface-variant);
+    cursor: pointer;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+.ann-controls label:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.ann-controls input {
+    accent-color: var(--primary);
+}
+
+/* ------------------------------------------------------------
+   The drawing
+   ------------------------------------------------------------ */
+.house-svg {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid var(--outline-variant);
+}
+
+/* Annotation layer: red marks with a white halo so the labels
+   stay readable over the sky, house and grass. */
+.ann text {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    fill: var(--annotation);
+    paint-order: stroke;
+    stroke: #ffffff;
+    stroke-width: 3px;
+    stroke-linejoin: round;
+}
+
+.ann line {
+    stroke: var(--annotation);
+    stroke-width: 1.5;
+}
+
+.ann line.dashed {
+    stroke-dasharray: 4 3;
+}
+
+.ann .dot {
+    fill: var(--annotation);
+    stroke: #ffffff;
+    stroke-width: 1;
+}
+
+.ann .ctrl {
+    fill: #ffffff;
+    stroke: var(--annotation);
+    stroke-width: 2;
+}
+
+/* ------------------------------------------------------------
+   Screenshot galleries
+   ------------------------------------------------------------ */
+.svg-comparison {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gutter);
+}
+
+.svg-comparison--two {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.svg-card {
+    background-color: var(--surface-card);
+    border: 1px solid var(--outline-variant);
+    padding: 12px;
+}
+
+.svg-card img {
+    width: 100%;
+    border: 1px solid var(--outline-variant);
+    margin-bottom: 12px;
+}
+
+.svg-card figcaption {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--on-surface-variant);
+}
+
+.svg-card figcaption strong {
+    color: var(--on-surface);
+}
+
+@media (max-width: 899px) {
+    .svg-comparison,
+    .svg-comparison--two {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .svg-comparison {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
