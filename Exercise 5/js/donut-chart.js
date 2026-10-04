@@ -27,6 +27,11 @@ function drawDonutChart(data) {
     });
     const grandTotal = d3.sum(totals, d => d.energy);
 
+    // Colour scale: d3.scaleOrdinal maps each category to a colour
+    const colourScale = d3.scaleOrdinal()
+        .domain(TECH_ORDER)
+        .range(TECH_ORDER.map(tech => TECH_COLOURS[tech]));
+
     // d3.pie works out the start and end angle of each slice
     const pie = d3.pie()
         .value(d => d.energy)
@@ -47,7 +52,7 @@ function drawDonutChart(data) {
         .data(slices)
         .join("path")
         .attr("d", arc)
-        .attr("fill", d => TECH_COLOURS[d.data.tech])
+        .attr("fill", d => colourScale(d.data.tech))
         .on("mousemove", (event, d) => tooltip.show(event,
             `<strong>${d.data.tech}</strong>` +
             `${d3.format(",")(d.data.energy)} kWh/year<br>` +

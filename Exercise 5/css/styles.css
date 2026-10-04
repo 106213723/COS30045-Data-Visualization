@@ -1102,6 +1102,14 @@ main {
 /* ------------------------------------------------------------
    19. Exercise 5: chart extras
    ------------------------------------------------------------ */
+/* Container each chart's svg is drawn into (carried over from Week 4) */
+.responsive-svg-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
 .donut-total {
     font-family: var(--font-display);
     font-size: 30px;

@@ -19,8 +19,11 @@ function drawBarChart(data) {
         };
     });
 
+    // Sort from the highest average energy use to the lowest
+    means.sort((a, b) => b.mean - a.mean);
+
     const xScale = d3.scaleBand()
-        .domain(TECH_ORDER)
+        .domain(means.map(d => d.tech))
         .range([0, chart.innerWidth])
         .padding(0.35);
 
@@ -34,11 +37,12 @@ function drawBarChart(data) {
     chart.inner.selectAll("rect")
         .data(means)
         .join("rect")
+        .attr("class", "bar")
         .attr("x", d => xScale(d.tech))
         .attr("y", d => yScale(d.mean))
         .attr("width", xScale.bandwidth())
         .attr("height", d => chart.innerHeight - yScale(d.mean))
-        .attr("fill", d => TECH_COLOURS[d.tech])
+        .style("fill", d => TECH_COLOURS[d.tech])   // inline style so it wins over the .bar rule
         .on("mousemove", (event, d) => tooltip.show(event,
             `<strong>55-inch ${d.tech}</strong>` +
             `Average ${d3.format(".1f")(d.mean)} kWh/year<br>${d.models} models`))
