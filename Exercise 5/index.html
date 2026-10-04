@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart Types | Appliance Energy Consumption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand" aria-label="Appliance Energy Consumption, Exercise 5">
+                <img src="images/PowerIcon.png" alt="Power logo">
+                <span class="brand-name">Appliance Energy</span>
+            </a>
+
+            <nav id="primary-nav" aria-label="Primary">
+                <ul class="nav-links">
+                    <li><a href="../Exercise%203/televisions.html">Data story</a></li>
+                    <li><a href="../Exercise%204/index.html">D3 basics</a></li>
+                    <li><a class="active" href="index.html" aria-current="page">Chart types</a></li>
+                    <li><a href="../Exercise%206/index.html">Interaction</a></li>
+                </ul>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" type="button"
+                    aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container grid">
+                <div class="span-8 stack-sm">
+                    <p class="eyebrow">Exercise 5 · Multi-chart webpage</p>
+                    <h1 class="display display--narrow">Four ways to look at energy</h1>
+                    <p class="body-main lead">
+                        Each question about television energy use suits a different kind of
+                        chart. This page uses a scatter plot, a donut chart, a bar chart and a
+                        line chart, all drawn with D3.js from the course datasets.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scatter plot -->
+        <section class="section">
+            <div class="container">
+                <div class="grid mb-md">
+                    <div class="span-8 stack-sm">
+                        <p class="eyebrow">Scatter plot</p>
+                        <h2 class="headline-section">Do more stars mean less energy?</h2>
+                        <p class="body-main">
+                            Yes, on average. Each dot is one of 4,233 televisions, and the dark line
+                            joins the average at each rating. One-star models average 1,243 kWh a
+                            year, while six-star models average 300 kWh. The relationship is weaker
+                            than for screen size (r = −0.50), because a large television can earn
+                            many stars and still use more energy than a small, low-rated one.
+                        </p>
+                    </div>
+                </div>
+                <div class="chart-frame chart-frame--tall">
+                    <div class="chart" id="scatter-plot"></div>
+                </div>
+                <p class="figure-caption">
+                    Figure 5.1: Energy consumption against star rating. Dots are spread slightly
+                    sideways so overlapping models stay visible; hover for details.
+                </p>
+            </div>
+        </section>
+
+        <!-- Donut and bar -->
+        <section class="section">
+            <div class="container">
+                <div class="grid mb-md">
+                    <div class="span-8 stack-sm">
+                        <p class="eyebrow">Donut chart and bar chart</p>
+                        <h2 class="headline-section">Which screen technology uses the most?</h2>
+                        <p class="body-main">
+                            The answer depends on how the question is asked. Across every television,
+                            LED accounts for 85% of the combined energy use, but mostly because 82%
+                            of the models are LED. Comparing only 55-inch models removes the effect
+                            of screen size, and the gap between technologies shrinks to about 13%.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="legend" aria-label="Screen technology colours">
+                    <span><i style="background-color: #167a45"></i>LED</span>
+                    <span><i style="background-color: #c0780f"></i>LCD</span>
+                    <span><i style="background-color: #2f6db5"></i>OLED</span>
+                </div>
+
+                <div class="grid">
+                    <div class="span-6">
+                        <div class="chart-frame">
+                            <h3 class="chart-frame__title">Share of total energy use, all TVs</h3>
+                            <div class="chart" id="donut-chart"></div>
+                        </div>
+                        <p class="figure-caption">
+                            Figure 5.2: Combined yearly energy use of every model, by technology.
+                        </p>
+                    </div>
+                    <div class="span-6">
+                        <div class="chart-frame">
+                            <h3 class="chart-frame__title">Average energy use, 55-inch TVs only</h3>
+                            <div class="chart" id="bar-chart"></div>
+                        </div>
+                        <p class="figure-caption">
+                            Figure 5.3: Mean energy use of the 689 models with a 55-inch screen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Line chart -->
+        <section class="section">
+            <div class="container">
+                <div class="grid mb-md">
+                    <div class="span-8 stack-sm">
+                        <p class="eyebrow">Line chart</p>
+                        <h2 class="headline-section">Electricity has become more expensive to buy.</h2>
+                        <p class="body-main">
+                            Wholesale spot prices stayed between about $30 and $65 per megawatt hour
+                            from 1998 to 2015. Since then they have climbed sharply, peaking at an
+                            average of $144.50 in 2022, which makes every kilowatt hour a television
+                            uses more costly to supply.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="legend" aria-label="Line chart key">
+                    <span><i class="legend-line" style="background-color: #167a45"></i>Mainland average (QLD, NSW, VIC, SA)</span>
+                    <span><i class="legend-line" style="background-color: #6f7a70"></i>Individual regions</span>
+                </div>
+
+                <div class="chart-frame chart-frame--tall">
+                    <div class="chart" id="line-chart"></div>
+                </div>
+                <p class="figure-caption">
+                    Figure 5.4: Annual average wholesale spot price, 1998 to 2024. Hover to see
+                    every region's price for a year.
+                </p>
+            </div>
+        </section>
+
+        <!-- Chart choices -->
+        <section class="section section--ruled">
+            <div class="container">
+                <div class="grid">
+                    <div class="span-4">
+                        <h2 class="headline-section">Why these charts</h2>
+                    </div>
+                    <div class="span-8 stack-md">
+                        <div class="takeaway">
+                            <span class="takeaway__num">01</span>
+                            <div>
+                                <h3>Scatter plot for relationships</h3>
+                                <p class="body-main">
+                                    Plotting every model shows both the overall trend and how
+                                    much individual televisions vary around it.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <span class="takeaway__num">02</span>
+                            <div>
+                                <h3>Donut chart for parts of a whole</h3>
+                                <p class="body-main">
+                                    Total energy use splits cleanly into three technologies, and
+                                    with only three slices the shares stay easy to compare.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <span class="takeaway__num">03</span>
+                            <div>
+                                <h3>Bar chart for comparing values</h3>
+                                <p class="body-main">
+                                    Bars that share a zero baseline make small differences in
+                                    average energy use easy to judge by length.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <span class="takeaway__num">04</span>
+                            <div>
+                                <h3>Line chart for change over time</h3>
+                                <p class="body-main">
+                                    Connecting each year to the next makes the long flat period and
+                                    the recent rise stand out at a glance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div>
+                <div class="site-footer__brand">Appliance Energy</div>
+                <p>
+                    &copy; <span id="year"></span> Abdullah Al Shafayet Sporsho. Created for COS30045 Data
+                    Visualisation. Generative AI (Claude, Anthropic) was used to generate and
+                    debug the chart code for this exercise.
+                </p>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="../Exercise%203/televisions.html">Data story</a>
+                <a href="../Exercise%204/index.html">D3 basics</a>
+                <a class="active" href="index.html">Chart types</a>
+                <a href="../Exercise%206/index.html">Interaction</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/chart-helpers.js"></script>
+    <script src="js/scatter-plot.js"></script>
+    <script src="js/donut-chart.js"></script>
+    <script src="js/bar-chart.js"></script>
+    <script src="js/line-chart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
