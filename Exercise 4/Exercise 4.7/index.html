@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise 4.3 | Appliance Energy Consumption</title>
+    <title>Exercise 4.7 | Appliance Energy Consumption</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
@@ -24,11 +24,11 @@
                     <li><a href="../index.html">Overview</a></li>
                     <li><a href="../Exercise%204.1/index.html">4.1</a></li>
                     <li><a href="../Exercise%204.2/index.html">4.2</a></li>
-                    <li><a class="active" aria-current="page" href="../Exercise%204.3/index.html">4.3</a></li>
+                    <li><a href="../Exercise%204.3/index.html">4.3</a></li>
                     <li><a href="../Exercise%204.4/index.html">4.4</a></li>
                     <li><a href="../Exercise%204.5/index.html">4.5</a></li>
                     <li><a href="../Exercise%204.6/index.html">4.6</a></li>
-                    <li><a href="../Exercise%204.7/index.html">4.7</a></li>
+                    <li><a class="active" aria-current="page" href="../Exercise%204.7/index.html">4.7</a></li>
                 </ul>
             </nav>
 
@@ -45,9 +45,9 @@
         <section class="hero">
             <div class="container grid">
                 <div class="span-8 stack-sm">
-                    <p class="eyebrow">Exercise 4.3</p>
-                    <h1 class="display display--narrow">Setting up D3 and a responsive SVG</h1>
-                    <p class="body-main lead">D3 is added to the page with a single script tag. This step checks that it has loaded and creates the SVG that later charts will be drawn in.</p>
+                    <p class="eyebrow">Exercise 4.7</p>
+                    <h1 class="display display--narrow">Adding labels</h1>
+                    <p class="body-main lead">A chart without labels is not very useful. This step names every bar and shows its exact value, which turns the shapes from 4.6 into a readable bar chart.</p>
                 </div>
             </div>
         </section>
@@ -57,10 +57,10 @@
                     <div class="card card--ruled stack-sm">
                         <h2 class="headline-chart">What this step does</h2>
                         <p class="body-main">
-                            The D3 library is loaded from <code>https://d3js.org/d3.v7.min.js</code> before <code>main.js</code>, so the global <code>d3</code> object is ready when our code runs.
+                            The bars now start at <code>x = 100</code>, leaving room on the left for the brand names. Each bar and its labels are placed in one <code>&lt;g&gt;</code> group, and the group is moved down to its band with <code>translate(0, yScale(d.brand))</code>. Because the group sets the vertical position, the rectangle's own <code>y</code> is set back to 0.
                         </p>
                         <p class="body-main">
-                            D3 appends an <code>&lt;svg&gt;</code> to the <code>.responsive-svg-container</code> div. Instead of a fixed width and height it has a <code>viewBox</code> of 1200 by 1600, which defines its own coordinate system. The <code>.responsive-svg-container</code> class in <code>style.css</code> centres the container and lets it grow to 1200px, so the box changes size with the window. The black border shows the edge of the canvas.
+                            Two <code>&lt;text&gt;</code> elements are appended to every group: the brand name, right-aligned with <code>text-anchor: end</code> just left of the bar, and the model count, placed just past the end of the bar with <code>xScale(d.count)</code>.
                         </p>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                             </svg>
                             <h3 class="headline-chart">Key idea</h3>
                         </div>
-                        <p class="body-main">Shapes inside a viewBox are positioned in viewBox units, not screen pixels. Resize the browser window and the rectangle keeps the same proportions.</p>
+                        <p class="body-main">Grouping lets the bar and its labels move together: change one translate and all three shift as a unit. Try changing <code>text-anchor</code> from <code>end</code> to <code>start</code> or <code>middle</code> to see how the brand names line up.</p>
                     </div>
                 </div>
             </div>
@@ -81,10 +81,10 @@
             <div class="container">
                 <h2 class="headline-section mb-md">The result</h2>
                 <div class="result-frame">
-                    <p id="d3-version" class="eyebrow mb-sm">Checking for D3...</p>
+                    <p id="chart-status" class="eyebrow mb-sm" role="status">Loading data...</p>
                     <div class="chart responsive-svg-container"></div>
                 </div>
-                <p class="figure-caption">Figure 4.3: A responsive SVG with a hard-coded test rectangle at the top. The border marks the edge of the viewBox.</p>
+                <p class="figure-caption">Figure 4.7: Television models per brand, with brand names and model counts.</p>
             </div>
         </section>
         <section class="section">
